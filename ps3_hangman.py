@@ -107,16 +107,14 @@ def hangman(secretWord):
     Follows the other limitations detailed in the problem write-up.
     """
     secretWordChars = len(secretWord)
-    chars_left_to_guess = 0
     guesses_left = 8
     lettersGuessed = []
-    gameOver = False
     secretWordList = list(secretWord)
     print(secretWordList)
     print('Welcome to the game Hangman!')
     print("I'm thinking of a word that is", secretWordChars, "long.")
 
-    while gameOver is False:
+    while isWordGuessed(secretWord, lettersGuessed) is False:
         print('You have', guesses_left, 'guesses left.')
         print('Available letters:', getAvailableLetters(lettersGuessed))
         gameOver = isWordGuessed(secretWord, lettersGuessed)
@@ -130,6 +128,7 @@ def hangman(secretWord):
         else:
             guesses_left -= 1
             print("Oops! That letter is not in my word:", guessedWord)
+
 
 
 

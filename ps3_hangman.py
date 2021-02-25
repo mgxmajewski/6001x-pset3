@@ -43,6 +43,7 @@ def chooseWord(wordlist):
 # so that it can be accessed from anywhere in the program
 wordlist = loadWords()
 
+
 def isWordGuessed(secretWord, lettersGuessed):
     """
     secretWord: string, the word the user is guessing
@@ -64,15 +65,12 @@ def getGuessedWord(secretWord, lettersGuessed):
       what letters in secretWord have been guessed so far.
     '''
     guessed_word_string = ''
-    guessed_chars = []
     for char in secretWord:
         if char not in lettersGuessed:
-            guessed_chars.append('_ ')
+            guessed_word_string += '_ '
         elif char in lettersGuessed:
-            guessed_chars.append(char + ' ')
-    return guessed_word_string.join(guessed_chars)
-
-
+            guessed_word_string += char + ' '
+    return guessed_word_string
 
 
 def getAvailableLetters(lettersGuessed):

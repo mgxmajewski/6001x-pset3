@@ -118,7 +118,9 @@ def hangman(secretWord):
     while gameOver is False:
         gameOver = isWordGuessed(secretWord, lettersGuessed)
         user_guess = input('Please guess a letter: ').lower()
-        if user_guess in secretWordList:
+        if user_guess in lettersGuessed:
+            print('You already guessed this letter!')
+        elif user_guess in secretWordList:
             lettersGuessed.append(user_guess)
             print(getGuessedWord(secretWord, lettersGuessed))
 

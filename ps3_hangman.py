@@ -118,13 +118,18 @@ def hangman(secretWord):
 
     while gameOver is False:
         print('You have', guesses_left, 'guesses left.')
+        print('Available letters:', getAvailableLetters(lettersGuessed))
         gameOver = isWordGuessed(secretWord, lettersGuessed)
+        guessedWord = getGuessedWord(secretWord, lettersGuessed)
         user_guess = input('Please guess a letter: ').lower()
         if user_guess in lettersGuessed:
-            print('You already guessed this letter!')
+            print("Oops! You've already guessed that letter:", guessedWord)
         elif user_guess in secretWordList:
             lettersGuessed.append(user_guess)
-            print(getGuessedWord(secretWord, lettersGuessed))
+            print("Good guess:", getGuessedWord(secretWord, lettersGuessed))
+        else:
+            guesses_left -= 1
+            print("Oops! That letter is not in my word:", guessedWord)
 
 
 

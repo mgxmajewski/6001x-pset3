@@ -106,15 +106,15 @@ def hangman(secretWord):
 
     Follows the other limitations detailed in the problem write-up.
     """
-
-    print('Welcome to the game Hangman!')
-    print("I'm thinking of a word that is", str(len(secretWord)), "long.")
-
+    secretWordChars = len(secretWord)
+    chars_left_to_guess = 0
     guesses_left = 8
     lettersGuessed = []
     gameOver = False
     secretWordList = list(secretWord)
     print(secretWordList)
+    print('Welcome to the game Hangman!')
+    print("I'm thinking of a word that is", secretWordChars, "long.")
 
     while gameOver is False:
         print('You have', guesses_left, 'guesses left.')
